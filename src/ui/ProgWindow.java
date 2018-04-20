@@ -92,10 +92,15 @@ public class ProgWindow {
 				integerTextField.setText("");
 			}
 		});
-		btnEnter.setBounds(236, 83, 76, 23);
+		btnEnter.setBounds(236, 82, 76, 23);
 		frmSortprog.getContentPane().add(btnEnter);
 		
 		JButton btnSort = new JButton("Sort");
+		btnSort.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnSort.setBounds(322, 82, 102, 23);
 		frmSortprog.getContentPane().add(btnSort);
 		
@@ -103,6 +108,7 @@ public class ProgWindow {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				sort.deleteArray();
+				sizeArrayField.setText("");
 			}
 		});
 		btnNewButton.setBounds(322, 20, 102, 23);
