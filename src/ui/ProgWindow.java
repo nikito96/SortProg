@@ -14,7 +14,8 @@ public class ProgWindow {
 
 	private JFrame frmSortprog;
 	private JTextField sizeArrayField;
-	private JTextField textField_1;
+	private JTextField integerTextField;
+	private int i = -1;
 
 	/**
 	 * Launch the application.
@@ -55,12 +56,12 @@ public class ProgWindow {
 		frmSortprog.getContentPane().add(textArea);
 		
 		sizeArrayField = new JTextField();
-		sizeArrayField.setBounds(106, 38, 120, 20);
+		sizeArrayField.setBounds(109, 21, 117, 20);
 		frmSortprog.getContentPane().add(sizeArrayField);
 		sizeArrayField.setColumns(10);
 		
 		JLabel lblSizeOfThe = new JLabel("Size of the array:");
-		lblSizeOfThe.setBounds(10, 41, 86, 14);
+		lblSizeOfThe.setBounds(10, 24, 103, 14);
 		frmSortprog.getContentPane().add(lblSizeOfThe);
 		
 		JButton btnCreate = new JButton("Create");
@@ -70,24 +71,32 @@ public class ProgWindow {
 				sort.initArray(size);
 			}
 		});
-		btnCreate.setBounds(236, 37, 89, 23);
+		btnCreate.setBounds(236, 20, 76, 23);
 		frmSortprog.getContentPane().add(btnCreate);
 		
 		JLabel lblIntegersOfArrayenter = new JLabel("Integers of the array(Enter one by one):");
-		lblIntegersOfArrayenter.setBounds(10, 86, 202, 14);
+		lblIntegersOfArrayenter.setBounds(10, 58, 232, 14);
 		frmSortprog.getContentPane().add(lblIntegersOfArrayenter);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(211, 83, 76, 20);
-		frmSortprog.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		integerTextField = new JTextField();
+		integerTextField.setBounds(10, 83, 205, 20);
+		frmSortprog.getContentPane().add(integerTextField);
+		integerTextField.setColumns(10);
 		
 		JButton btnEnter = new JButton("Enter");
-		btnEnter.setBounds(297, 82, 64, 23);
+		btnEnter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				++i;
+				int integer = Integer.parseInt(integerTextField.getText());
+				sort.enterArr(i, integer);
+				integerTextField.setText("");
+			}
+		});
+		btnEnter.setBounds(236, 83, 76, 23);
 		frmSortprog.getContentPane().add(btnEnter);
 		
 		JButton btnSort = new JButton("Sort");
-		btnSort.setBounds(365, 82, 59, 23);
+		btnSort.setBounds(322, 82, 102, 23);
 		frmSortprog.getContentPane().add(btnSort);
 		
 		JButton btnNewButton = new JButton("Delete arr");
@@ -96,7 +105,7 @@ public class ProgWindow {
 				sort.deleteArray();
 			}
 		});
-		btnNewButton.setBounds(335, 37, 89, 23);
+		btnNewButton.setBounds(322, 20, 102, 23);
 		frmSortprog.getContentPane().add(btnNewButton);
 	}
 }

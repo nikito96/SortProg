@@ -11,4 +11,8 @@ public class Sort {
 	public void deleteArray() {
 		arr = null;
 	}
+	
+	public void enterArr(int i, int integer) {
+		arr[i] = integer;
+	}
 }
