@@ -15,7 +15,6 @@ public class ProgWindow {
 	private JFrame frmSortprog;
 	private JTextField sizeArrayField;
 	private JTextField integerTextField;
-	private int i = -1;
 
 	/**
 	 * Launch the application.
@@ -86,9 +85,8 @@ public class ProgWindow {
 		JButton btnEnter = new JButton("Enter");
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				++i;
 				int integer = Integer.parseInt(integerTextField.getText());
-				sort.enterArr(i, integer);
+				sort.enterArr(integer);
 				integerTextField.setText("");
 			}
 		});
@@ -98,7 +96,7 @@ public class ProgWindow {
 		JButton btnSort = new JButton("Sort");
 		btnSort.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				textArea.setText(sort.sort(Integer.parseInt(sizeArrayField.getText())));
 			}
 		});
 		btnSort.setBounds(322, 82, 102, 23);
