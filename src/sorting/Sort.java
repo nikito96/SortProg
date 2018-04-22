@@ -3,7 +3,8 @@ package sorting;
 public class Sort {
 	
 	private int[] arr;
-	private String sortedArray = "Sorted array: ";
+	private String[] arrString;
+	private String sortedArray;
 	private int i = -1;
 	
 	int partition(int[] arr, int low, int high) {
@@ -36,11 +37,14 @@ public class Sort {
 	}
 	
 	public String sort(int high) {
+		arrString = new String[high];
 		quickSort(arr, 0, high - 1);
 		for(int i = 0; i < arr.length; i++) {
-			sortedArray.concat(Integer.toString(arr[i]));
+			arrString[i] = Integer.toString(arr[i]);
+			sortedArray = String.join(", ", arrString);
 		}
-		return sortedArray;
+		
+		return "Sorted array: " + sortedArray + ".";
 	}
 	
 	public void initArray(int size){
